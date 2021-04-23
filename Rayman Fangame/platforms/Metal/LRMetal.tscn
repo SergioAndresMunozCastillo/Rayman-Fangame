@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://platforms/Metal/LRMetal.gd" type="Script" id=1]
+[ext_resource path="res://platforms/Metal/metalLR.png" type="Texture" id=2]
+
+[sub_resource type="SegmentShape2D" id=1]
+a = Vector2( -41.408, -1.8446 )
+b = Vector2( 50.1992, -3.04205 )
+
+[node name="LRMetal" type="StaticBody2D"]
+position = Vector2( 436.261, 290.893 )
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4.78995, -18.5609 )
+shape = SubResource( 1 )
+

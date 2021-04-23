@@ -1,0 +1,90 @@
+[gd_scene load_steps=41 format=2]
+
+[ext_resource path="res://player/PlayerScene.gd" type="Script" id=1]
+[ext_resource path="res://player/moving/1.png" type="Texture" id=2]
+[ext_resource path="res://player/moving/2.png" type="Texture" id=3]
+[ext_resource path="res://player/moving/3.png" type="Texture" id=4]
+[ext_resource path="res://player/moving/4.png" type="Texture" id=5]
+[ext_resource path="res://player/moving/5.png" type="Texture" id=6]
+[ext_resource path="res://player/jumping/1.png" type="Texture" id=7]
+[ext_resource path="res://player/jumping/2.png" type="Texture" id=8]
+[ext_resource path="res://player/jumping/3.png" type="Texture" id=9]
+[ext_resource path="res://player/jumping/4.png" type="Texture" id=10]
+[ext_resource path="res://player/jumping/5.png" type="Texture" id=11]
+[ext_resource path="res://player/jumping/6.png" type="Texture" id=12]
+[ext_resource path="res://player/jumping/7.png" type="Texture" id=13]
+[ext_resource path="res://player/jumping/8.png" type="Texture" id=14]
+[ext_resource path="res://player/jumping/9.png" type="Texture" id=15]
+[ext_resource path="res://player/jumping/10.png" type="Texture" id=16]
+[ext_resource path="res://player/jumping/11.png" type="Texture" id=17]
+[ext_resource path="res://player/running/1.png" type="Texture" id=18]
+[ext_resource path="res://player/running/2.png" type="Texture" id=19]
+[ext_resource path="res://player/running/3.png" type="Texture" id=20]
+[ext_resource path="res://player/running/4.png" type="Texture" id=21]
+[ext_resource path="res://player/running/5.png" type="Texture" id=22]
+[ext_resource path="res://player/running/6.png" type="Texture" id=23]
+[ext_resource path="res://player/running/7.png" type="Texture" id=24]
+[ext_resource path="res://player/running/8.png" type="Texture" id=25]
+[ext_resource path="res://player/running/9.png" type="Texture" id=26]
+[ext_resource path="res://player/running/10.png" type="Texture" id=27]
+[ext_resource path="res://player/running/11.png" type="Texture" id=28]
+[ext_resource path="res://player/running/12.png" type="Texture" id=29]
+[ext_resource path="res://player/running/13.png" type="Texture" id=30]
+[ext_resource path="res://player/running/14.png" type="Texture" id=31]
+[ext_resource path="res://player/running/15.png" type="Texture" id=32]
+[ext_resource path="res://player/running/16.png" type="Texture" id=33]
+[ext_resource path="res://player/falling/1.png" type="Texture" id=34]
+[ext_resource path="res://player/flying/1.png" type="Texture" id=35]
+[ext_resource path="res://player/flying/2.png" type="Texture" id=36]
+[ext_resource path="res://player/flying/3.png" type="Texture" id=37]
+[ext_resource path="res://player/flying/4.png" type="Texture" id=38]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "idle",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "jumping",
+"speed": 26.0
+}, {
+"frames": [ ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"loop": true,
+"name": "running",
+"speed": 18.0
+}, {
+"frames": [ ExtResource( 34 ) ],
+"loop": true,
+"name": "falling",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ) ],
+"loop": true,
+"name": "flying",
+"speed": 9.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 10.9619, 25.5358 )
+
+[node name="player" type="KinematicBody2D"]
+position = Vector2( 247.278, 105.976 )
+script = ExtResource( 1 )
+
+[node name="sprites" type="AnimatedSprite" parent="."]
+position = Vector2( 0.598755, -2.39494 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 4
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.3 )
+

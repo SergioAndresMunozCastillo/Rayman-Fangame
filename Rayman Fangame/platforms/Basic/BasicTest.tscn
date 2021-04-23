@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://platforms/Basic/BasicRockTile.res" type="TileSet" id=1]
+[ext_resource path="res://player/PlayerScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://platforms/Basic/tile.png" type="Texture" id=3]
+[ext_resource path="res://platforms/Rock/UDRock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Hazard/GunShot All/gunShot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://platforms/Rock/LRRock.tscn" type="PackedScene" id=6]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8.27193, 6.93132 )
+
+[node name="basictest" type="Node2D"]
+
+[node name="platforms" type="TileMap" parent="."]
+z_as_relative = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 786449, 0, 0, 786450, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851990, 0, 0, 851991, 0, 0, 851992, 0, 0, 851993, 0, 0, 851994, 0, 0, 851995, 0, 0, 917517, 0, 0, 917518, 0, 0, 917519, 0, 0, 917531, 0, 0, 917532, 0, 0, 917544, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983068, 0, 0, 983069, 0, 0, 983078, 0, 0, 983079, 0, 0, 1048605, 0, 0, 1048606, 0, 0, 1048607, 0, 0, 1048608, 0, 0, 1048609, 0, 0, 1048612, 0, 0, 1048613, 0, 0, 1048614, 0, 0, 1114145, 0, 0, 1114146, 0, 0, 1114147, 0, 0, 1114148, 0, 0 )
+
+[node name="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 59.558, 62.656 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2( 62.2725, 147.107 )
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="Node2D" parent="StaticBody2D" instance=ExtResource( 4 )]
+position = Vector2( 644.477, 93.9013 )
+
+[node name="Node2D2" parent="." instance=ExtResource( 5 )]
+position = Vector2( 324.414, 141.972 )
+
+[node name="LRRock" parent="." instance=ExtResource( 6 )]
+position = Vector2( 797.901, 282.984 )
+
